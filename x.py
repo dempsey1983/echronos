@@ -88,7 +88,9 @@ sys.path.append(os.path.dirname(__file__))
 
 # pylint: disable=wrong-import-position
 from pylib.utils import BASE_DIR
-sys.path = [os.path.join(BASE_DIR, 'external_tools')] + sys.path
+sys.path.insert(0, os.path.join(BASE_DIR, 'external_tools'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'external_tools',
+                                'Python-{}.{}'.format(sys.version_info[0], sys.version_info[1])))
 sys.path.insert(0, os.path.join(BASE_DIR, 'prj/app/pystache'))
 if __name__ == '__main__':
     sys.modules['x'] = sys.modules['__main__']
